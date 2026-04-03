@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pymongo[srv]
+python-dotenv
+python-jose[cryptography]
+passlib[bcrypt]
+scikit-learn
+numpy
+python-multipart
