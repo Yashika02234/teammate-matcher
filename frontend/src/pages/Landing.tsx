@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { PageWrapper } from '../components/layout/PageWrapper';
 import { Button } from '../components/ui/Button';
 
 export default function LandingPage() {

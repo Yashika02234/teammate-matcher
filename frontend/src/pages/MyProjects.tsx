@@ -7,7 +7,7 @@ import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { Input, Select } from '../components/ui/Input';
 import { SkeletonCard } from '../components/ui/Loader';
-import { SKILLS_LIST } from '../utils/constants';
+import { SKILLS_LIST } from '../utils/constants.ts';
 
 export default function MyProjectsPage() {
   const { userId } = useAuth();
