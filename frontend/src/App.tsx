@@ -40,28 +40,40 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-          <Navbar />
-          <div style={{ flex: 1 }}>
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/auth" element={<AuthPage />} />
-              
-              {/* Protected Routes */}
-              <Route path="/dashboard" element={<RequireAuth><DashboardPage /></RequireAuth>} />
-              <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
-              <Route path="/projects" element={<RequireAuth><MyProjectsPage /></RequireAuth>} />
-              <Route path="/find-teammates" element={<RequireAuth><FindTeammatesPage /></RequireAuth>} />
-              <Route path="/find-projects" element={<RequireAuth><FindProjectsPage /></RequireAuth>} />
-              <Route path="/requests" element={<RequireAuth><RequestsPage /></RequireAuth>} />
-              <Route path="/chat" element={<RequireAuth><ChatPage /></RequireAuth>} />
-
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-        </div>
+        <AppContent />
       </BrowserRouter>
     </AuthProvider>
   );
 }
+
+function AppContent() {
+  const { isLoggedIn, userId } = useAuth();
+  const location = useLocation();
+
+  console.log('[Routing] Current Location:', location.pathname, 'LoggedIn:', isLoggedIn, 'User:', userId);
+
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Navbar />
+      <div style={{ flex: 1 }}>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/auth" element={<AuthPage />} />
+          
+          {/* Protected Routes */}
+          <Route path="/dashboard" element={<RequireAuth><DashboardPage /></RequireAuth>} />
+          <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
+          <Route path="/projects" element={<RequireAuth><MyProjectsPage /></RequireAuth>} />
+          <Route path="/find-teammates" element={<RequireAuth><FindTeammatesPage /></RequireAuth>} />
+          <Route path="/find-projects" element={<RequireAuth><FindProjectsPage /></RequireAuth>} />
+          <Route path="/requests" element={<RequireAuth><RequestsPage /></RequireAuth>} />
+          <Route path="/chat" element={<RequireAuth><ChatPage /></RequireAuth>} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </div>
+  );
+}
+
