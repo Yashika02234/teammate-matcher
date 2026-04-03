@@ -102,7 +102,7 @@ export function Navbar() {
               <Button variant="ghost" size="sm" onClick={logout}>Log out</Button>
             </>
           ) : (
-            <Link to="/auth">
+            <Link to="/login">
               <Button variant="primary" size="sm">Get Started</Button>
             </Link>
           )}

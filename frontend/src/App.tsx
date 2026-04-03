@@ -20,7 +20,7 @@ function RequireAuth({ children }: { children: JSX.Element }) {
   const location = useLocation();
 
   if (!isLoggedIn) {
-    return <Navigate to="/auth" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return children;
@@ -59,7 +59,7 @@ function AppContent() {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/login" element={<AuthPage />} />
           
           {/* Protected Routes */}
           <Route path="/dashboard" element={<RequireAuth><DashboardPage /></RequireAuth>} />
