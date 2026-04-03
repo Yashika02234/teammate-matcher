@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Token } from '../types';
 
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 // Login uses form-urlencoded (OAuth2PasswordRequestForm)
 export async function login(username: string, password: string): Promise<Token> {
