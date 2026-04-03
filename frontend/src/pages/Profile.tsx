@@ -5,7 +5,7 @@ import { getProfiles, updateProfile } from '../api/profiles';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { Input, Select } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
-import { SKILLS_LIST, INTERESTS_LIST } from '../utils/constants.ts';
+import { SKILLS_LIST, INTERESTS_LIST } from '../utils/constants';
 import api from '../api/client';
 
 export default function ProfilePage() {
