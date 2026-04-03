@@ -1,4 +1,5 @@
-import React from 'react';
+// React import removed to resolve TS6133
+
 
 export function Loader({ message = 'Loading…' }: { message?: string }) {
   return (

@@ -93,12 +93,13 @@ export interface MatchResponse {
 export interface ProjectMatchResult {
   user_id: string;
   name: string;
-  score: number;              // 0 – 100
-  matched_pct: number;        // 0 – 100
+  score: number;
+  matched_pct: number;
   matched_skills: string[];
   missing_skills: string[];
   roles: string[];
   reasons: string[];
+  explanation?: MatchExplanation; // Optional for backward compatibility in components
 }
 
 export interface ProjectMatchResponse {

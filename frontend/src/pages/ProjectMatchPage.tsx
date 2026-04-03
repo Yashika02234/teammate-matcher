@@ -8,7 +8,7 @@ import { SkeletonCard } from '../components/ui/Loader';
 import { ErrorMessage } from '../components/ui/ErrorMessage';
 import { useAuth } from '../hooks/useAuth';
 import { getProjectMatches } from '../api/matches';
-import type { MatchResult } from '../types';
+import type { ProjectMatchResult } from '../types';
 import { extractError } from '../utils/helpers';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -18,7 +18,7 @@ export default function ProjectMatchPage() {
   const navigate = useNavigate();
   const [projectId, setProjectId]  = useState('');
   const [status, setStatus]        = useState<Status>('idle');
-  const [matches, setMatches]      = useState<MatchResult[]>([]);
+  const [matches, setMatches]      = useState<ProjectMatchResult[]>([]);
   const [error, setError]          = useState('');
   const [lastQueried, setLastQueried] = useState('');
 

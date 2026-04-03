@@ -1,10 +1,10 @@
-import type { MatchResult } from '../../types';
+import type { MatchResult, ProjectMatchResult } from '../../types';
 import { Badge } from '../ui/Badge';
 import { ScoreRing } from './ScoreRing';
 import { SKILL_LABELS } from '../../utils/helpers';
 
 interface MatchCardProps {
-  match: MatchResult;
+  match: MatchResult | ProjectMatchResult;
   rank: number;
   type?: 'user' | 'project';
   style?: React.CSSProperties;
@@ -17,7 +17,10 @@ const rankColors: Record<number, string> = {
 };
 
 export function MatchCard({ match, rank, style }: MatchCardProps) {
-  const { name, score, reasons, user_id } = match;
+  const { name, score, user_id } = match;
+  // Handle both enriched (explanation-based) and simple (reasons-based) results
+  const reasons = match.explanation?.reasons || (match as any).reasons || [];
+
   const initials = name
     .split(' ')
     .map((w) => w[0])
@@ -80,7 +83,7 @@ export function MatchCard({ match, rank, style }: MatchCardProps) {
 
         {/* Reasons */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '10px' }}>
-          {reasons.map((reason) => (
+          {reasons.map((reason: string) => (
             <Badge key={reason} variant="primary" size="sm">
               {SKILL_LABELS[reason] ?? reason}
             </Badge>
