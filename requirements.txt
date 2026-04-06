@@ -3,7 +3,9 @@ uvicorn[standard]
 pymongo[srv]
 python-dotenv
 python-jose[cryptography]
-passlib[bcrypt]
+
 scikit-learn
 numpy
 python-multipart
+bcrypt==3.2.0
+passlib[bcrypt]==1.7.4
